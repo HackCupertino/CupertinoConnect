@@ -45,6 +45,7 @@ public class RequestActivity extends ListActivity {
         test.add(new EventInfo("Rancho San Antonio", new MyGregorianCalendar(2017, 1, 12, 12, 21)));
         test.add(new EventInfo("Portal Park", new MyGregorianCalendar(2017, 1, 13, 12, 22)));
 
+/*
         test.sort(new Comparator<EventInfo>() {
             @Override
             public int compare(EventInfo o1, EventInfo o2) {
@@ -53,15 +54,20 @@ public class RequestActivity extends ListActivity {
                 else return o1.getDate().getDayOfMonth() - o2.getDate().getDayOfMonth();
             }
         });
+*/
 
 
-        setListAdapter(new ArrayAdapter<EventInfo>(RequestActivity.this, android.R.layout.simple_list_item_1, test) {
+/*
+        setListAdapter(new ArrayAdapter<EventInfo>(RequestActivity.this, android.R.layout.activity_list_item, test) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 return super.getView(position, convertView, parent);
             }
         });
+*/
+
+        setListAdapter(new ArrayAdapter<EventInfo>(RequestActivity.this, android.R.layout.simple_list_item_1, test));
 
     }
 }
@@ -152,6 +158,6 @@ class MyGregorianCalendar extends GregorianCalendar {
 
     @Override
     public String toString() {
-        return dayOfMonth + "/" + month + "/" + year + ", " + hourOfDay + ":" + minute;
+        return month + "/" + dayOfMonth + "/" + year + ", " + hourOfDay + ":" + minute;
     }
 }
