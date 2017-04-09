@@ -1,9 +1,13 @@
 package com.example.prathabodas.cupertinoconnect;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.GridLayout;
+import android.widget.GridView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
@@ -42,6 +46,29 @@ public class RequestActivity extends ListActivity {
     }
 }
 
+class EventLayout extends GridView {
+
+    private EventInfo eventInfo;
+
+    public EventLayout(Context context, EventInfo eventInfo) {
+        super(context);
+        this.eventInfo = eventInfo;
+
+        GridView eventDetails = new GridView(context);
+
+        TextView eventLocation = new TextView(context);
+        eventLocation.setText(eventInfo.getEventLocation());
+        TextView date = new TextView(context);
+        date.setText(eventInfo.getDate().toString());
+
+        eventDetails.addView(eventLocation);
+        eventDetails.addView(date);
+
+        addView(eventDetails);
+    }
+
+}
+
 class EventInfo {
     private String eventLocation;
     private MyGregorianCalendar date;
@@ -55,6 +82,22 @@ class EventInfo {
     @Override
     public String toString() {
         return "Location: " + eventLocation + "\r\nDate: " + date;
+    }
+
+    public String getEventLocation() {
+        return eventLocation;
+    }
+
+    public MyGregorianCalendar getDate() {
+        return date;
+    }
+
+    public boolean isAccepted() {
+        return accepted;
+    }
+
+    public boolean isDeclined() {
+        return declined;
     }
 }
 
