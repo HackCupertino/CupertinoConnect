@@ -12,10 +12,11 @@ import com.google.android.gms.maps.MapView;
  */
 
 public class MapActivity extends Activity {
-    @Override
+   // @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         Intent intent = getIntent();
-        //MapView map = new MapView()
     }
+
+
 }
