@@ -17,7 +17,7 @@ public class MapActivity extends Activity {
         Intent intent = getIntent();
 
         // Create a Uri from an intent string. Use the result to create an Intent.
-        Uri gmmIntentUri = Uri.parse("geo:0,0?q=10185 North Stelling Road, Cupertino, California");
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + "10185 North Stelling Road, Cupertino, California");
 
         // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
@@ -26,8 +26,6 @@ public class MapActivity extends Activity {
 
         // Attempt to start an activity that can handle the Intent
         startActivity(mapIntent);
-
-
     }
 
 }
