@@ -1,11 +1,9 @@
 package com.example.prathabodas.cupertinoconnect;
 
-import android.app.Activity;
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -13,29 +11,47 @@ import java.util.ArrayList;
  * Created by oleonh on 4/9/17.
  */
 
-public class RequestActivity extends Activity {
+public class RequestActivity extends ListActivity {
 
-    ArrayList<String> test = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         Intent intent = getIntent();
 
+        ArrayList<String> test = new ArrayList<>();
+
         test.add("Eliot");
         test.add("Oleon");
-        test.add("Pratha");
+        test.add("Prath@");
         test.add("Ryan");
         test.add("Sukanya");
         test.add("Surendra");
+        test.add("Karel");
+        test.add("Eliot");
+        test.add("Oleon");
+        test.add("Prath@");
+        test.add("Ryan");
+        test.add("Sukanya");
+        test.add("Surendra");
+        test.add("Karel");
+        test.add("Eliot");
+        test.add("Oleon");
+        test.add("Prath@");
+        test.add("Ryan");
+        test.add("Sukanya");
+        test.add("Surendra");
+        test.add("Karel");
+        test.add("Eliot");
+        test.add("Oleon");
+        test.add("Prath@");
+        test.add("Ryan");
+        test.add("Sukanya");
+        test.add("Surendra");
+        test.add("Karel");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, test);
 
-        ListView listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(adapter);
-
-//        startActivity(intent);
+        setListAdapter(new ArrayAdapter<>(RequestActivity.this, android.R.layout.simple_list_item_1, test));
 
     }
 }
