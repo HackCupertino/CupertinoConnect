@@ -1,16 +1,10 @@
 package com.example.prathabodas.cupertinoconnect;
 
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-
-import com.google.android.gms.maps.*;
-import com.google.android.gms.maps.model.*;
 
 /**
  * Created by prathabodas on 4/8/17.
@@ -23,7 +17,7 @@ public class MapActivity extends Activity {
         Intent intent = getIntent();
 
         // Create a Uri from an intent string. Use the result to create an Intent.
-        Uri gmmIntentUri = Uri.parse("google.streetview:cbll=46.414382,10.013988");
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q=10185 North Stelling Road, Cupertino, California");
 
         // Create an Intent from gmmIntentUri. Set the action to ACTION_VIEW
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
