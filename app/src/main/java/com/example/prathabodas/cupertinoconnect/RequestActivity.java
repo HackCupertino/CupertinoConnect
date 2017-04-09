@@ -79,14 +79,6 @@ class EventLayout extends TableLayout {
                 dateRow.addView(dateText);
             eventDetails.addView(dateRow);
         addView(eventDetails);
-
-        Button accept = new Button(context);
-        accept.setText("Accept");
-        addView(accept);
-
-        Button decline = new Button(context);
-        decline.setText("Decline");
-        addView(decline);
     }
 
 }
@@ -94,7 +86,6 @@ class EventLayout extends TableLayout {
 class EventInfo {
     private String eventLocation;
     private MyGregorianCalendar date;
-    private boolean accepted = false, declined = false;
 
     public EventInfo(String eventLocation, MyGregorianCalendar date) {
         this.eventLocation = eventLocation;
@@ -114,13 +105,6 @@ class EventInfo {
         return date;
     }
 
-    public boolean isAccepted() {
-        return accepted;
-    }
-
-    public boolean isDeclined() {
-        return declined;
-    }
 }
 
 class MyGregorianCalendar extends GregorianCalendar {
