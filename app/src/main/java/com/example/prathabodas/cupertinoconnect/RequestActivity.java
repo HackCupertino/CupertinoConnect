@@ -4,9 +4,16 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.GridView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -41,12 +48,18 @@ public class RequestActivity extends ListActivity {
         test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 14)));
 
 
-        setListAdapter(new ArrayAdapter<>(RequestActivity.this, android.R.layout.simple_list_item_1, test));
+        setListAdapter(new ArrayAdapter<EventInfo>(RequestActivity.this, android.R.layout.simple_list_item_1, test) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return super.getView(position, convertView, parent);
+            }
+        });
 
     }
 }
 
-class EventLayout extends GridView {
+class EventLayout extends TableLayout {
 
     private EventInfo eventInfo;
 
@@ -54,17 +67,26 @@ class EventLayout extends GridView {
         super(context);
         this.eventInfo = eventInfo;
 
-        GridView eventDetails = new GridView(context);
-
-        TextView eventLocation = new TextView(context);
-        eventLocation.setText(eventInfo.getEventLocation());
-        TextView date = new TextView(context);
-        date.setText(eventInfo.getDate().toString());
-
-        eventDetails.addView(eventLocation);
-        eventDetails.addView(date);
-
+        TableLayout eventDetails = new TableLayout(context);
+            TableRow locationRow = new TableRow(context);
+                TextView locationText = new TextView(context);
+                locationText.setText(eventInfo.getEventLocation());
+                locationRow.addView(locationText);
+            eventDetails.addView(locationRow);
+            TableRow dateRow = new TableRow(context);
+                TextView dateText = new TextView(context);
+                dateText.setText(eventInfo.getDate().toString());
+                dateRow.addView(dateText);
+            eventDetails.addView(dateRow);
         addView(eventDetails);
+
+        Button accept = new Button(context);
+        accept.setText("Accept");
+        addView(accept);
+
+        Button decline = new Button(context);
+        decline.setText("Decline");
+        addView(decline);
     }
 
 }
