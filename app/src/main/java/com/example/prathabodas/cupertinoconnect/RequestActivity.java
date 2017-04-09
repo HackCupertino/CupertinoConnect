@@ -1,6 +1,7 @@
 package com.example.prathabodas.cupertinoconnect;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.widget.ArrayAdapter;
@@ -19,6 +20,8 @@ public class RequestActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+
         test.add("Eliot");
         test.add("Oleon");
         test.add("Pratha");
@@ -31,5 +34,7 @@ public class RequestActivity extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        startActivity(intent);
     }
 }

@@ -14,7 +14,6 @@ public class MapActivity extends Activity {
     // @Override
     protected void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        Intent intent = getIntent();
 
         // Create a Uri from an intent string. Use the result to create an Intent.
         Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + "10185 North Stelling Road, Cupertino, California");
