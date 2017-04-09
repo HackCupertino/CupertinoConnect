@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button go = (Button)findViewById(R.id.go);
-        go.setOnClickListener(new View.OnClickListener() {
+        Button viewLoc = (Button)findViewById(R.id.viewLoc);
+        viewLoc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent transition = new Intent(MainActivity.this, MapActivity.class);
                 MainActivity.this.startActivity(transition);
