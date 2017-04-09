@@ -18,8 +18,8 @@ public class RequestActivity extends Activity {
     ArrayList<String> test = new ArrayList<>();
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
         Intent intent = getIntent();
 
         test.add("Eliot");
@@ -29,13 +29,13 @@ public class RequestActivity extends Activity {
         test.add("Sukanya");
         test.add("Surendra");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, test);
 
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
-        startActivity(intent);
+//        startActivity(intent);
 
     }
 }
