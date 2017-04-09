@@ -9,14 +9,12 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.GridLayout;
-import android.widget.GridView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 
 /**
@@ -46,6 +44,15 @@ public class RequestActivity extends ListActivity {
         test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 12)));
         test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 13)));
         test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 14)));
+
+        test.sort(new Comparator<EventInfo>() {
+            @Override
+            public int compare(EventInfo o1, EventInfo o2) {
+                if(o2.getDate().getYear() != o1.getDate().getYear()) return o1.getDate().getYear() - o2.getDate().getYear();
+                else if(o2.getDate().getMonth() != o1.getDate().getMonth()) return o1.getDate().getMonth() - o2.getDate().getMonth();
+                else return o1.getDate().getDayOfMonth() - o2.getDate().getDayOfMonth();
+            }
+        });
 
 
         setListAdapter(new ArrayAdapter<EventInfo>(RequestActivity.this, android.R.layout.simple_list_item_1, test) {
@@ -109,6 +116,18 @@ class EventInfo {
 
 class MyGregorianCalendar extends GregorianCalendar {
     private int year, month, dayOfMonth;
+
+    public int getYear() {
+        return year;
+    }
+
+    public int getMonth() {
+        return month;
+    }
+
+    public int getDayOfMonth() {
+        return dayOfMonth;
+    }
 
     MyGregorianCalendar(int year, int month, int dayOfMonth) {
         super(year, month, dayOfMonth);
