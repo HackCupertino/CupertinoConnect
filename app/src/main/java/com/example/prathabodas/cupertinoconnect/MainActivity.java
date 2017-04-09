@@ -1,20 +1,18 @@
 package com.example.prathabodas.cupertinoconnect;
 
 import android.Manifest;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.TaskStackBuilder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
-
-import static android.R.attr.value;
 
 public class MainActivity extends AppCompatActivity {
     private double latitude;
@@ -56,15 +54,14 @@ public class MainActivity extends AppCompatActivity {
         latitude = location.getLatitude();
 
         double distanceforminsqrt = Math.pow(longitude - 37.3258,2) + Math.pow(latitude - 122.0424, 2);
-        //System.out.println("DISTANCEALSDKGLHSAD   " + distanceforminsqrt);
 
         if (Math.sqrt(distanceforminsqrt) <= 0.0728) {//&& the button is pressed)
-            android.support.v4.app.NotificationCompat.Builder mBuilder =
-                    new NotificationCompat.Builder(this)
-                           // .setSmallIcon(R.drawable.notification_icon)
+            android.support.v4.app.NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                             .setContentTitle("Cupertino Connect")
                             .setContentText("Would you like to hang out at the Quinlan Community Center?");
             Intent resultIntent = new Intent(this, MainActivity.class);
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+            stackBuilder.addParentStack(MainActivity.class);
 
         }
     }
