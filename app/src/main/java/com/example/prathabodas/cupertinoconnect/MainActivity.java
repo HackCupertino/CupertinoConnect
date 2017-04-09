@@ -1,20 +1,18 @@
 package com.example.prathabodas.cupertinoconnect;
 
-import android.Manifest;
+
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.TaskStackBuilder;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
+import android.app.Notification;
+
+import android.content.res.Resources;
 
 public class MainActivity extends AppCompatActivity {
     private double latitude;
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+       /* LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -58,19 +56,24 @@ public class MainActivity extends AppCompatActivity {
         double distanceforminsqrt = Math.pow(longitude - 37.3258,2) + Math.pow(latitude - 122.0424, 2);
 
         if (Math.sqrt(distanceforminsqrt) <= 0.0728) {//&& the button is pressed)
-            android.support.v4.app.NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-                            .setContentTitle("Cupertino Connect")
-                            .setContentText("Would you like to hang out at the Quinlan Community Center?");
-            Intent resultIntent = new Intent(this, MainActivity.class);
-            TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-            stackBuilder.addParentStack(MainActivity.class);
-            stackBuilder.addNextIntent(resultIntent);
-            PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT);
-            mBuilder.setContentIntent(resultPendingIntent);
-            int mynotif = 1;
-            NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            mNotificationManager.notify(mynotif, mBuilder.build());
+       */
+            addNotification();
         }
+    //}
+    public void addNotification() {
+        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, MapActivity.class), 0);
+        Resources r = getResources();
+        Notification notification = new NotificationCompat.Builder(this)
+                .setTicker(r.getString(R.string.notification_titles))
+                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setContentTitle(r.getString(R.string.notification_titles))
+                .setContentText(r.getString(R.string.notification_tex))
+                .setContentIntent(pi)
+                .setAutoCancel(true)
+                .build();
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notificationManager.notify(0, notification);
     }
 
 }
