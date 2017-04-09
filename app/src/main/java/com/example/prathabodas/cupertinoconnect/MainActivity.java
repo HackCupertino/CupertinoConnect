@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         longitude = location.getLongitude();
         latitude = location.getLatitude();
 
         double distanceforminsqrt = Math.pow(longitude - 37.3258,2) + Math.pow(latitude - 122.0424, 2);
+        //System.out.println("DISTANCEALSDKGLHSAD   " + distanceforminsqrt);
 
         if (Math.sqrt(distanceforminsqrt) <= 0.0728) {//&& the button is pressed)
             android.support.v4.app.NotificationCompat.Builder mBuilder =
