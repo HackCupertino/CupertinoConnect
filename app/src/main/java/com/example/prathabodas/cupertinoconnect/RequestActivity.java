@@ -31,20 +31,19 @@ public class RequestActivity extends ListActivity {
         Intent intent = getIntent();
 
         ArrayList<EventInfo> test = new ArrayList<>();
-        test.add(new EventInfo("Quinlan Center", new MyGregorianCalendar(2017, 1, 1, 12, 10)));
-        test.add(new EventInfo("Quinlan Centerr", new MyGregorianCalendar(2017, 1, 2, 12, 11)));
-        test.add(new EventInfo("Quinlan Centerrr", new MyGregorianCalendar(2017, 1, 3, 12, 12)));
-        test.add(new EventInfo("Quinlan Centerrrrr", new MyGregorianCalendar(2017, 1, 4, 12, 13)));
-        test.add(new EventInfo("Quinlan Centerrrrrr", new MyGregorianCalendar(2017, 1, 5, 12, 14)));
-        test.add(new EventInfo("Quinlan Centerrrrrrr", new MyGregorianCalendar(2017, 1, 6, 12, 15)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrr", new MyGregorianCalendar(2017, 1, 7, 12, 16)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrr", new MyGregorianCalendar(2017, 1, 8, 12, 17)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrr", new MyGregorianCalendar(2017, 1, 9, 12, 18)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 10, 12, 19)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 11, 12, 20)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 12, 12, 21)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 13, 12, 22)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 14, 12, 23)));
+        test.add(new EventInfo("Memorial Park", new MyGregorianCalendar(2017, 1, 1, 12, 10)));
+        test.add(new EventInfo("Jollyman Park", new MyGregorianCalendar(2017, 1, 2, 12, 11)));
+        test.add(new EventInfo("Cupertino Library", new MyGregorianCalendar(2017, 1, 3, 12, 12)));
+        test.add(new EventInfo("Main Street Cupertino", new MyGregorianCalendar(2017, 1, 4, 12, 13)));
+        test.add(new EventInfo("Calabazas Park", new MyGregorianCalendar(2017, 1, 5, 12, 14)));
+        test.add(new EventInfo("Metropolitan at Cupertino", new MyGregorianCalendar(2017, 1, 6, 12, 15)));
+        test.add(new EventInfo("Cupertino Village", new MyGregorianCalendar(2017, 1, 7, 12, 16)));
+        test.add(new EventInfo("Cupertino City Center", new MyGregorianCalendar(2017, 1, 8, 12, 17)));
+        test.add(new EventInfo("Cupertino Sports Center", new MyGregorianCalendar(2017, 1, 9, 12, 18)));
+        test.add(new EventInfo("Blackberry Farm", new MyGregorianCalendar(2017, 1, 10, 12, 19)));
+        test.add(new EventInfo("McClellan Ranch Park", new MyGregorianCalendar(2017, 1, 11, 12, 20)));
+        test.add(new EventInfo("Rancho San Antonio", new MyGregorianCalendar(2017, 1, 12, 12, 21)));
+        test.add(new EventInfo("Portal Park", new MyGregorianCalendar(2017, 1, 13, 12, 22)));
 
         test.sort(new Comparator<EventInfo>() {
             @Override
