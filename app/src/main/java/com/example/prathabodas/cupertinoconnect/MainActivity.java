@@ -19,5 +19,13 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(transition);
             }
         });
+
+        Button viewReq = (Button) findViewById(R.id.viewReq);
+        viewReq.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent transition = new Intent(MainActivity.this, RequestActivity.class);
+                MainActivity.this.startActivity(transition);
+            }
+        });
     }
 }
