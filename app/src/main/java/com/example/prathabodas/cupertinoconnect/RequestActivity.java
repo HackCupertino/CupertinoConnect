@@ -31,20 +31,20 @@ public class RequestActivity extends ListActivity {
         Intent intent = getIntent();
 
         ArrayList<EventInfo> test = new ArrayList<>();
-        test.add(new EventInfo("Quinlan Center", new MyGregorianCalendar(2017, 1, 1)));
-        test.add(new EventInfo("Quinlan Centerr", new MyGregorianCalendar(2017, 1, 2)));
-        test.add(new EventInfo("Quinlan Centerrr", new MyGregorianCalendar(2017, 1, 3)));
-        test.add(new EventInfo("Quinlan Centerrrrr", new MyGregorianCalendar(2017, 1, 4)));
-        test.add(new EventInfo("Quinlan Centerrrrrr", new MyGregorianCalendar(2017, 1, 5)));
-        test.add(new EventInfo("Quinlan Centerrrrrrr", new MyGregorianCalendar(2017, 1, 6)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrr", new MyGregorianCalendar(2017, 1, 7)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrr", new MyGregorianCalendar(2017, 1, 8)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrr", new MyGregorianCalendar(2017, 1, 9)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 10)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 11)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 12)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 13)));
-        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 14)));
+        test.add(new EventInfo("Quinlan Center", new MyGregorianCalendar(2017, 1, 1, 12, 10)));
+        test.add(new EventInfo("Quinlan Centerr", new MyGregorianCalendar(2017, 1, 2, 12, 11)));
+        test.add(new EventInfo("Quinlan Centerrr", new MyGregorianCalendar(2017, 1, 3, 12, 12)));
+        test.add(new EventInfo("Quinlan Centerrrrr", new MyGregorianCalendar(2017, 1, 4, 12, 13)));
+        test.add(new EventInfo("Quinlan Centerrrrrr", new MyGregorianCalendar(2017, 1, 5, 12, 14)));
+        test.add(new EventInfo("Quinlan Centerrrrrrr", new MyGregorianCalendar(2017, 1, 6, 12, 15)));
+        test.add(new EventInfo("Quinlan Centerrrrrrrr", new MyGregorianCalendar(2017, 1, 7, 12, 16)));
+        test.add(new EventInfo("Quinlan Centerrrrrrrrr", new MyGregorianCalendar(2017, 1, 8, 12, 17)));
+        test.add(new EventInfo("Quinlan Centerrrrrrrrrr", new MyGregorianCalendar(2017, 1, 9, 12, 18)));
+        test.add(new EventInfo("Quinlan Centerrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 10, 12, 19)));
+        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 11, 12, 20)));
+        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 12, 12, 21)));
+        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 13, 12, 22)));
+        test.add(new EventInfo("Quinlan Centerrrrrrrrrrrrrrr", new MyGregorianCalendar(2017, 1, 14, 12, 23)));
 
         test.sort(new Comparator<EventInfo>() {
             @Override
@@ -120,7 +120,7 @@ class EventInfo {
 }
 
 class MyGregorianCalendar extends GregorianCalendar {
-    private int year, month, dayOfMonth;
+    private int year, month, dayOfMonth, hourOfDay, minute;
 
     public int getYear() {
         return year;
@@ -134,15 +134,25 @@ class MyGregorianCalendar extends GregorianCalendar {
         return dayOfMonth;
     }
 
-    MyGregorianCalendar(int year, int month, int dayOfMonth) {
-        super(year, month, dayOfMonth);
+    public int getHourOfDay() {
+        return hourOfDay;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    MyGregorianCalendar(int year, int month, int dayOfMonth, int hourOfDay, int minute) {
+        super(year, month, dayOfMonth, hourOfDay, minute);
         this.year = year;
         this.month = month;
         this.dayOfMonth = dayOfMonth;
+        this.hourOfDay = hourOfDay;
+        this.minute = minute;
     }
 
     @Override
     public String toString() {
-        return dayOfMonth + "/" + month + "/" + year;
+        return dayOfMonth + "/" + month + "/" + year + ", " + hourOfDay + ":" + minute;
     }
 }
