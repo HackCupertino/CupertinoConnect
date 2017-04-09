@@ -14,6 +14,8 @@ import android.support.v7.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
 
+import static android.R.attr.value;
+
 public class MainActivity extends AppCompatActivity {
     private double latitude;
     private double longitude;

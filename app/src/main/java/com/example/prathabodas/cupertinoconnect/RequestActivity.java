@@ -36,5 +36,6 @@ public class RequestActivity extends Activity {
         listView.setAdapter(adapter);
 
         startActivity(intent);
+
     }
 }
