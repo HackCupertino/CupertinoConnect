@@ -1,6 +1,10 @@
 package com.example.prathabodas.cupertinoconnect;
 
-
+import io.particle.android.sdk.cloud.ParticleCloud;
+import io.particle.android.sdk.cloud.ParticleCloudException;
+import io.particle.android.sdk.cloud.ParticleDevice;
+import io.particle.android.sdk.utils.Async;
+import io.particle.android.sdk.utils.Toaster;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
@@ -54,12 +58,14 @@ public class MainActivity extends AppCompatActivity {
         latitude = location.getLatitude();
 
         double distanceforminsqrt = Math.pow(longitude - 37.3258,2) + Math.pow(latitude - 122.0424, 2);
+*/
 
-        if (Math.sqrt(distanceforminsqrt) <= 0.0728) {//&& the button is pressed)
-       */
+        if (add if statement here)  //(Math.sqrt(distanceforminsqrt) <= 0.0728) && the button is pressed)
             addNotification();
-        }
+
+        } //end of onCreate method
     //}
+
     public void addNotification() {
         PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, MapActivity.class), 0);
         Resources r = getResources();
