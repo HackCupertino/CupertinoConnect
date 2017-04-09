@@ -3,16 +3,9 @@ package com.example.prathabodas.cupertinoconnect;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
 /**
@@ -68,7 +61,7 @@ class EventInfo {
 class MyGregorianCalendar extends GregorianCalendar {
     private int year, month, dayOfMonth;
 
-    public MyGregorianCalendar(int year, int month, int dayOfMonth) {
+    MyGregorianCalendar(int year, int month, int dayOfMonth) {
         super(year, month, dayOfMonth);
         this.year = year;
         this.month = month;
